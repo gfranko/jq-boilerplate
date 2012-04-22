@@ -8,9 +8,7 @@ If you are not using the jQueryUI Widget Factory to build stateful UI widgets, y
 The Revealing Module Pattern uses closures to allow both private and public plugin properties.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.
 
 ##Notable Features
--Provides a ready-made public API
-
--Provides private methods (All private methods are preceded with an underscore)
+-Provides a ready-made public API and private methods (All private methods are preceded with an underscore)
 
 -Protects against multiple plugin instances being created
 
