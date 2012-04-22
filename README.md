@@ -1,7 +1,7 @@
 jqBoilerplate - Build stateful jQuery widgets
 ==============
 
-[Homepage] (http://www.jqboilerplate.com)
+[Homepage] (http://gregfranko.com/jq-boilerplate/)
 
 ##Description
 If you are not using the jQueryUI Widget Factory to build stateful jQuery widgets, you might feel lost about how to properly organize your jQuery plugin code.  jqBoilerplate uses the Revealing Module Object-Oriented Design Pattern to organize and provide structure to a stateful jQuery widget.
