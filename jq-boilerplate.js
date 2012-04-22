@@ -103,6 +103,7 @@
         //      Replaces a single existing plugin option
         setOption = function(key, value, callback) {
 
+            //Makes sure a string is passed in
             if(typeof key === "string") {
                 //Sets the plugin option to the new value provided by the user
                 self.options[key] = value;    
@@ -181,7 +182,7 @@
             return this;
         };
 
-        //Public API (Add to this)
+        //Public API (Add to this if you create custom methods that you want to be public)
         // -----------------------
         //		All of these methods or properties are public
         
