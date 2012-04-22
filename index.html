@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jq-boilerplate by gfranko</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/gfranko/jq-boilerplate">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/gfranko/jq-boilerplate/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/gfranko/jq-boilerplate/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Jq-boilerplate</h1>
+          <p>Boilerplate code to help build stateful jQuery widgets.  The Revealing Module Pattern is used to organize the jQuery plugin code.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/gfranko">gfranko</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>jq-boilerplate - Build stateful jQuery widgets</h1>
+
+<h2>Description</h2>
+
+<p>If you are not using the jQueryUI Widget Factory to build stateful UI widgets, you might feel lost about how to properly organize your jQuery plugin code.  Jq-Boilerplate uses the Revealing Module Object-Oriented Design Pattern to organize and provide structure to a stateful jQuery plugin.</p>
+
+<h2>The Revealing Module Pattern</h2>
+
+<p>The Revealing Module Pattern uses closures to allow both private and public plugin properties.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.</p>
+
+<h2>Notable Features</h2>
+
+<p>-Provides a ready-made public API and private methods (All private methods are preceded with an underscore)</p>
+
+<p>-Protects against multiple plugin instances being created</p>
+
+<p>-Provides a custom jQuery pseudo-selector for your plugin</p>
+
+<p>-Default plugin options can be retrieved and set at any time using the 4 completed 
+ methods provided (getOption(), getOptions(), setOption(), and setOptions)</p>
+
+<p>-Callback function and chaining support are built-in</p>
+
+<p>-A solution for dealing with the context of the this keyword (all instance properties are inside 
+ of an object literal called self)</p>
+
+<p>-Common methods used with stateful plugins are included (events, disable, enable, destroy, create).
+ These methods are blank, since your custom jQuery plugin logic will go here.</p>
+
+<h2>Getting Started</h2>
+
+<p><strong>1.</strong> Download jq-boilerplate.js</p>
+
+<p><strong>2.</strong> Change the <code>pluginName</code> and <code>pluginVersion</code> variables at the top of the file to your jQuery plugin name and version.</p>
+
+<p><strong>3.</strong> Write the custom logic for the <code>create()</code>, <code>destroy()</code>, <code>enable()</code>, <code>disable()</code>, and <code>_events</code>.</p>
+
+<p><strong>4.</strong> Celebrate!</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-30888305-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
