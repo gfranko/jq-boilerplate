@@ -205,7 +205,7 @@ a reserved word in JavaScript
         // -----------------------
         //		All of these methods or properties are public
         
-            return {
+        return {
             
             //**version**: The current version of the plugin
             version: pluginVersion,
