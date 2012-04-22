@@ -633,7 +633,6 @@ dt {
   height: 100px;
   width: 100%;
   position: absolute;
-  *position: relative;
   background: url(../images/nav-bg.gif) #353535;
   border-bottom: 4px solid #434343;
   -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
