@@ -32,7 +32,7 @@ The Revealing Module Pattern uses closures to allow both private and public plug
 
 **2.** Change the `pluginName` and `pluginVersion` variables at the top of the file to your jQuery plugin name and version.
 
-**3.** Write the custom logic for the `create()`, `destroy()`, `enable()`, `disable()`, `_ariaAccessibility`, and `_events`.
+**3.** Write the custom logic for the `create()`, `destroy()`, `enable()`, `disable()`, and `_events`.
 
 **4.** Celebrate!
  
