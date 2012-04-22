@@ -1,73 +1,3 @@
-@font-face {
-  font-family: 'OpenSansLight';
-  src: url("../fonts/OpenSans-Light-webfont.eot");
-  src: url("../fonts/OpenSans-Light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Light-webfont.woff") format("woff"), url("../fonts/OpenSans-Light-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Light-webfont.svg#OpenSansLight") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'OpenSansLightItalic';
-  src: url("../fonts/OpenSans-LightItalic-webfont.eot");
-  src: url("../fonts/OpenSans-LightItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-LightItalic-webfont.woff") format("woff"), url("../fonts/OpenSans-LightItalic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-LightItalic-webfont.svg#OpenSansLightItalic") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'OpenSansRegular';
-  src: url("../fonts/OpenSans-Regular-webfont.eot");
-  src: url("../fonts/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Regular-webfont.woff") format("woff"), url("../fonts/OpenSans-Regular-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-  font-family: 'OpenSansItalic';
-  src: url("../fonts/OpenSans-Italic-webfont.eot");
-  src: url("../fonts/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Italic-webfont.woff") format("woff"), url("../fonts/OpenSans-Italic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-  font-family: 'OpenSansSemibold';
-  src: url("../fonts/OpenSans-Semibold-webfont.eot");
-  src: url("../fonts/OpenSans-Semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Semibold-webfont.woff") format("woff"), url("../fonts/OpenSans-Semibold-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-  font-family: 'OpenSansSemiboldItalic';
-  src: url("../fonts/OpenSans-SemiboldItalic-webfont.eot");
-  src: url("../fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-SemiboldItalic-webfont.woff") format("woff"), url("../fonts/OpenSans-SemiboldItalic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-SemiboldItalic-webfont.svg#OpenSansSemiboldItalic") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-  font-family: 'OpenSansBold';
-  src: url("../fonts/OpenSans-Bold-webfont.eot");
-  src: url("../fonts/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Bold-webfont.woff") format("woff"), url("../fonts/OpenSans-Bold-webfont.ttf") format("truetype"), url("../fonts/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
-@font-face {
-  font-family: 'OpenSansBoldItalic';
-  src: url("../fonts/OpenSans-BoldItalic-webfont.eot");
-  src: url("../fonts/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-BoldItalic-webfont.woff") format("woff"), url("../fonts/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
 /* normalize.css 2012-02-07T12:37 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
    HTML5 display definitions
@@ -141,7 +71,7 @@ button,
 input,
 select,
 textarea {
-  font-family: sans-serif;
+  font-family: 'Kameron', serif;
 }
 
 /*
@@ -185,6 +115,7 @@ h1 {
 h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
+  text-decoration: underline;
 }
 
 h3 {
@@ -257,8 +188,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  font-family: 'Kameron', serif;
   font-size: 1em;
 }
 
@@ -531,10 +461,10 @@ table {
 body {
   padding: 0px 0 20px 0px;
   margin: 0px;
-  font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #f0e7d5;
+  font: 16px/1.6 'Kameron', serif;
+  color: #696969;
   font-weight: normal;
-  background: #252525;
+  background: #454545!important;
   background-attachment: fixed !important;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a29), color-stop(100%, #1c1c1c));
   background: -webkit-linear-gradient(#2a2a29, #1c1c1c);
@@ -545,9 +475,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #e8e8e8;
+  color: #659E10;
   margin: 0 0 10px;
-  font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Sansita One', cursive;
   font-weight: normal;
 }
 
@@ -574,18 +504,18 @@ h4, h5, h6 {
 h3 {
   font-size: 18px;
   line-height: 24px;
-  font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: 'Sansita One', cursive !important;
   font-weight: normal;
   color: #b6b6b6;
 }
 
 a {
-  color: #ffcc00;
+  color: #659E10;
   font-weight: 400;
   text-decoration: none;
 }
 a:hover {
-  color: #ffeb9b;
+  color: lightGreen;
 }
 
 a small {
@@ -600,15 +530,17 @@ ul {
 }
 
 strong {
-  font-family: 'OpenSansBold', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: 'Sansita One' !important;
   font-weight: normal;
 }
 
 .wrapper {
-  max-width: 650px;
+  max-width: 850px;
+  height: 100%;
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
+  background: white;
 }
 
 section img {
@@ -623,8 +555,8 @@ blockquote {
 }
 
 code {
-  font-family: "Lucida Sans", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-  color: #efefef;
+  font-family: 'Kameron', serif;
+  color: #2a2a29;
   font-size: 13px;
   margin: 0 4px;
   padding: 4px 6px;
@@ -670,7 +602,7 @@ th {
   padding: 5px 10px;
   border-bottom: 1px solid #434343;
   color: #b6b6b6;
-  font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: 'Kameron', serif !important;
   font-weight: normal;
 }
 
@@ -690,7 +622,7 @@ hr {
 
 dt {
   color: #F0E7D5;
-  font-family: 'OpenSansSemibold', "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-family: 'Kameron', serif !important;
   font-weight: normal;
 }
 
@@ -698,9 +630,9 @@ dt {
   z-index: 100;
   left: 0;
   top: 0px;
-  height: 60px;
+  height: 100px;
   width: 100%;
-  position: fixed;
+  position: absolute;
   background: url(../images/nav-bg.gif) #353535;
   border-bottom: 4px solid #434343;
   -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
@@ -709,14 +641,14 @@ dt {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
 }
 #header nav {
-  max-width: 650px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 0 10px;
   background: blue;
   margin: 6px auto;
 }
 #header nav li {
-  font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Kameron', serif;
   font-weight: normal;
   list-style: none;
   display: inline;
@@ -781,43 +713,47 @@ dt {
 }
 
 section {
-  max-width: 650px;
+  max-width: 850px;
   padding: 30px 0px 50px 0px;
   margin: 20px 0;
   margin-top: 70px;
 }
-section #title {
+#title {
   border: 0;
   outline: none;
   margin: 0 0 50px 0;
   padding: 0 0 5px 0;
 }
-section #title h1 {
-  font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+#title h1 {
+  font-family: 'Sansita One', cursive;
   font-weight: normal;
+  color: 659E10;
   font-size: 40px;
   text-align: center;
-  line-height: 36px;
+  line-height: 36pxl
 }
-section #title p {
-  color: #d7cfbe;
-  font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+#title p {
+  color: #F2F2F2;
+  font-family: 'Kameron', serif;
   font-weight: normal;
   font-size: 18px;
   text-align: center;
 }
-section #title .credits {
+#title .credits {
   font-size: 11px;
-  font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Kameron', serif;
   font-weight: normal;
   color: #696969;
   margin-top: -10px;
 }
-section #title .credits.left {
-  float: left;
+
+.credits.right {
+  margin-left: 40px;
 }
-section #title .credits.right {
-  float: right;
+
+footer {
+	color: #F2F2F2;
+    text-align: center;
 }
 
 @media print, screen and (max-width: 720px) {

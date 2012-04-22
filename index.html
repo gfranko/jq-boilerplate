@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jq-boilerplate by gfranko</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <title>jqBoilerplate by gfranko</title>
+    <link href='http://fonts.googleapis.com/css?family=Kameron:400,700|Sansita+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css" />
+    <link href="stylesheets/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/shThemeDefault.css" rel="stylesheet" type="text/css" />    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/respond.js"></script>
+    <script src="javascripts/shCore.js"></script>
+    <script src="javascripts/shBrushJScript.js"></script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -26,60 +31,445 @@
           <li class="downloads"><a href="https://github.com/gfranko/jq-boilerplate/tarball/master">TAR</a></li>
           <li class="title">DOWNLOADS</li>
         </nav>
+        <div id="title">
+          <h1>jqBoilerplate</h1>
+          <p>Boilerplate code to help build stateful jQuery widgets.
+        </div>
       </div><!-- end header -->
 
     <div class="wrapper">
 
       <section>
-        <div id="title">
-          <h1>Jq-boilerplate</h1>
-          <p>Boilerplate code to help build stateful jQuery widgets.  The Revealing Module Pattern is used to organize the jQuery plugin code.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/gfranko">gfranko</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
 
-        <h1>jq-boilerplate - Build stateful jQuery widgets</h1>
+      	<br /><br />
 
 <h2>Description</h2>
 
-<p>If you are not using the jQueryUI Widget Factory to build stateful UI widgets, you might feel lost about how to properly organize your jQuery plugin code.  Jq-Boilerplate uses the Revealing Module Object-Oriented Design Pattern to organize and provide structure to a stateful jQuery plugin.</p>
+<p>If you are not using the jQueryUI Widget Factory to build stateful jQuery widgets, you might feel lost about how to properly organize your jQuery plugin code.  <strong>jqBoilerplate</strong> uses the Revealing Module Design Pattern to organize and provide structure to a stateful jQuery widget.</p>
+
+<h2>The Code</h2>
+<pre class="brush: js; toolbar: false;">
+//      jqBoilerPlate - jQuery Stateful Plugin Boilerplate
+
+
+//		(c) 2012 Greg Franko
+
+//		jqBoilerplate may be freely distributed
+//		under the MIT license
+
+/* 
+Immediately-Invoked Function Expression (IIFE) [Ben Alman Blog Post]
+(http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
+that locally passes in `jQuery`, the `window` object, the `document` object,
+and an `undefined` variable.  The `jQuery`, `window` and `document` objects 
+are passed in locally to improve performance (JavaScript first searches for 
+a variable match within the local variables set before searching the global 
+variables set).  All of the global variables are also passed in locally to 
+be minifier friendly. `undefined` can be passed in locally, because it is not
+a reserved word in JavaScript
+*/
+(function ($, window, document, undefined) {
+
+    /*
+    ECMAScript 5 Strict Mode: [John Resig Blog Post]
+    (http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/)
+    */
+    "use strict";
+
+    //Plugin name (Change this)
+    var pluginName = "defaultName",
+
+    //Plugin version number (Change this)
+    pluginVersion = "0.1.0",
+
+    //Plugin Object
+    // ------------
+    //		Holds all of the plugin logic
+
+    /*
+    **Convention:** Methods or properties starting with `_` are meant to be 
+    private. You can make them public by including them in the return statement
+    at the bottom of the Constructor
+    */
+    Plugin = function(element, options, dataName) {
+
+        //Self (Add to this)
+        // -----------------
+        //		Stores all of the `Plugin` object instance variables
+        var self = {
+
+            //The DOM element that called the plugin
+            element: element,
+
+            //The DOM element that called the plugin (wrapped in a jQuery object)
+            $element: $(element),
+
+            //The plugin options object
+            options: options,
+
+            //The name of the plugin
+            dataName: dataName
+        },
+
+        //_Callback Support
+        // ----------------
+        //      Calls the function passed in as the parameter
+        _callbackSupport = function(callback) {
+
+            //Checks to make sure the parameter passed in is a function
+            if($.isFunction(callback)) {
+
+                /*
+                Calls the method passed in as a parameter and sets the context to 
+                the `Plugin` object, which is stored in the jQuery `data()`
+                method.  This allows for the `this` context to reference the 
+                Plugin API Methods in the callback function. The original element 
+                that called the plugin(wrapped in a jQuery object) is the only 
+                parameter passed back to the callback
+                */
+                callback.call(self.$element.data(dataName), self.$element);
+            }
+
+            //Maintains chainability
+            return this;
+        },  
+
+        //_Events (Add to this)
+        // --------------------
+        //      Adds plugin event handlers
+        _events = function() {
+
+            //Maintains chainability
+            return this;
+        },
+
+        //Get Option
+        // ---------
+        //      Returns a single plugin option
+        getOption = function(key, callback) {
+
+            /*
+            Returns the plugin option if it exists, and returns undefined if the 
+            option does not exist
+            */
+            return self.options[key] || undefined;    
+        },
+
+        //Get Options
+        // ----------
+        //      Returns all of the plugin options      
+        getOptions = function(callback) {
+        
+            //Returns an object of all of the plugin's options
+            return self.options || undefined;
+        },
+
+        //Set Option
+        // ---------
+        //      Replaces a single existing plugin option
+        setOption = function(key, value, callback) {
+
+            //Makes sure a string is passed in
+            if(typeof key === "string") {
+                //Sets the plugin option to the new value provided by the user
+                self.options[key] = value;    
+            }
+            //Provides callback function support
+            _callbackSupport(callback);
+
+            //Maintains chainability
+            return this;
+        },
+
+        //Set Options
+        // ----------
+        //      Accepts an object to replace plugin options properties
+        setOptions = function(newOptions, callback) {
+        
+            //If the passed in parameter is an object literal
+            if($.isPlainObject(newOptions)) {
+        
+                /*
+                Uses the jQuery `extend` method to merge the user specified 
+                options object with the self.options` object to create a new 
+                object.  The options variable is set to the newly created 
+                object.
+                */
+                self.options = $.extend({}, self.options, newOptions);
+            }
+  
+            //Provide callback function support
+            _callbackSupport(callback);
+
+            //Maintains chainability
+            return this;
+        },
+
+        //Disable (Add to this)
+        // --------------------
+        //      Disables the DOM element created by the plugin
+        disable = function(callback) {
+        
+            //Provides callback function support
+            _callbackSupport(callback);
+        
+            //Maintains chainability
+            return this;
+        },
+
+        //Enable (Add to this)
+        // -------------------
+        //      Enables the DOM element created by the plugin
+        enable = function(callback) {
+        
+            _callbackSupport(callback);
+        
+            //Maintains chainability
+            return this;
+        },
+
+        //Destroy (Add to this)
+        // --------------------
+        //      Brings the page back to it's intial state
+        destroy = function(callback) {
+        
+            //Provides callback function support
+            _callbackSupport(callback);
+        
+            //Maintains chainability
+            return this;
+        },
+
+        //Create (Add to this)
+        // -------------------
+        //      Constructs the plugin
+        create = function(callback) {
+
+            //Provides callback function support
+            _callbackSupport(callback);
+              
+            //Maintains chainability
+            return this;
+        };
+
+        //Public API (Add to this if you create custom public methods/properties)
+        // -----------------------
+        //		All of these methods or properties are public
+        
+            return {
+            
+            //**version**: The current version of the plugin
+            version: pluginVersion,
+
+            //**self**: Object holding all of the plugin instance properties
+            self: self,
+
+            /*
+            **getOption**: Returns a single plugin option.
+            Accepts one parameter (String key)
+            */
+            getOption: getOption,
+
+            /*
+            **getOptions**: Returns an object containing all of the current 
+            plugin options
+            Does not accept parameters
+            */
+            getOptions: getOptions,
+
+            /*
+            **setOption**: Sets a single plugin option.
+            Accepts two parameters (String key, value)
+            */
+            setOption: setOption,
+
+            /*
+            **setOptions**: Sets or adds new plugin option settings.
+            Accepts one parameter (Object newOptions)
+            */
+            setOptions: setOptions,
+
+            /*
+            **disable**: Disables the DOM element associated with the plugin
+            Does not accept parameters 
+            */
+            disable: disable,
+
+            /*
+            **enable**: Enables the DOM element associated with the plugin
+            Does not accept parameters
+            */
+            enable: enable,
+
+            /*
+            **destroy**: Removes all plugin events, data, and DOM elements
+            Does not accept parameters
+            */
+            destroy: destroy,
+
+            /*
+            **create**: Constructs the plugin
+            Does not accept parameters
+            */
+            create: create
+
+            };
+        };
+
+        //PLUGIN DEFINITION
+        // ----------------
+       //		Adds the plugin method to the jQuery prototype object
+        $.fn[pluginName] = function (options) {
+        
+            //Maintains chainability for all calling elements
+            return this.each(function () {
+        
+                /*
+                Stores the calling element and the data name into local variables,
+                instantiates the plugin variable (which will hold the Plugin 
+                object), and instantiates an empty object literal (which will be 
+                used to dynamically create a jQuery custom pseudo selector)
+                */
+                var element = $(this), plugin, dataName = pluginName, obj = {};
+        
+                /* 
+                Returns early if the calling element already has a plugin 
+                instance associated with it inside of the jQuery `data` method
+                */
+                if ($.data(element[0], dataName)) { 
+        
+                    return;
+        
+                }
+        
+                /*
+                Uses the jQuery `extend` method to merge the user specified 
+                options object with the `self.options`object to create a new 
+                object. The options variable is set to the newly created 
+                object.
+                */
+                options = $.extend({}, $.fn[pluginName].options, options);
+            
+                // Instantiates a new `Plugin` object and creates the plugin
+                plugin = new Plugin(this, options, dataName).create();
+            
+                /*
+                Stores the new `Plugin` object in the calling element's 
+                jQuery `data` method
+                */
+                $.data(element[0], dataName, plugin);
+
+                /*
+                Uses the name of the plugin to create a dynamic property 
+                of an empty object literal
+                */
+                obj[pluginName] = function(elem) {
+                    /*
+                    Returns all DOM elements that have jQuery `data()`
+                    created by the plugin
+                    */
+                    return $(elem).data(dataName) !== undefined;
+                };
+
+                //Adds custom jQuery pseudo selectors
+                $.extend($.expr[":"], obj); 
+                //end extending jQuery pseudo selectors
+        
+            }); //end return statement
+
+        };  //end plugin
+    
+    //Default plugin Options (Add to this)
+    // -----------------------------------
+    //		Adds default options to the plugin
+    $.fn[pluginName].options = {
+   
+    };
+
+//      End of Plugin
+}(jQuery, window, document));
+//passes in the `jQuery`, `window`, and `document` global objects locally
+</pre>
+
+<br />
 
 <h2>The Revealing Module Pattern</h2>
 
-<p>The Revealing Module Pattern uses closures to allow both private and public plugin properties.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.</p>
+<p>The Revealing Module Pattern uses closures to allow both private and public plugin properties and methods.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.</p>
+<br />
 
 <h2>Notable Features</h2>
 
-<p>-Provides a ready-made public API and private methods (All private methods are preceded with an underscore)</p>
+<p>-Provides a ready-made <strong>public API and private methods</strong> (All private methods are preceded with an underscore)</p>
 
 <p>-Protects against multiple plugin instances being created</p>
 
-<p>-Provides a custom jQuery pseudo-selector for your plugin</p>
+<p>-Provides a <strong>custom jQuery pseudo-selector</strong> for your plugin</p>
 
-<p>-Default plugin options can be retrieved and set at any time using the 4 completed 
+<p>-Default plugin <strong>options can be retrieved and set at any time</strong> using the 4 completed 
  methods provided (getOption(), getOptions(), setOption(), and setOptions)</p>
 
 <p>-Callback function and chaining support are built-in</p>
 
-<p>-A solution for dealing with the context of the this keyword (all instance properties are inside 
+<p>-A solution for dealing with the <strong>context of the this keyword</strong> (all instance properties are inside 
  of an object literal called self)</p>
 
 <p>-Common methods used with stateful plugins are included (events, disable, enable, destroy, create).
  These methods are blank, since your custom jQuery plugin logic will go here.</p>
+<br />
 
 <h2>Getting Started</h2>
 
 <p><strong>1.</strong> Download jq-boilerplate.js</p>
 
-<p><strong>2.</strong> Change the <code>pluginName</code> and <code>pluginVersion</code> variables at the top of the file to your jQuery plugin name and version.</p>
+<p><strong>2.</strong> Change the <strong>pluginName</strong> and <strong>pluginVersion</strong> variables at the top of the file to your jQuery plugin name and version.</p>
 
-<p><strong>3.</strong> Write the custom logic for the <code>create()</code>, <code>destroy()</code>, <code>enable()</code>, <code>disable()</code>, and <code>_events</code>.</p>
+<p><strong>3.</strong> Write the custom logic for the <strong>create()</strong>, <strong>destroy()</strong>, <strong>enable()</strong>, <strong>disable()</strong>, and <strong>_events()</strong>.</p>
 
-<p><strong>4.</strong> Celebrate!</p>
-      </section>
+<p><strong>4.</strong> You just created a stateful jQuery widget!  Celebrate!</p>
+<br />
 
-    </div>
+<h2>How to Use Your New jQuery Plugin</h2>
+
+<p>Call your plugin method on a jQuery object.  This example is assuming your plugin is named <strong>coolPlugin</strong>, so replace the name coolPlugin with the name of your plugin.</p>
+<pre class="brush: js; toolbar: false;">
+	//Creating your plugin!
+    var plugin = $("#someElement").coolPlugin().data("coolPlugin");
+</pre>
+
+<p>Test out your new jQuery pseudo selector</p>
+<pre class="brush: js; toolbar: false;">
+	/*
+	The jQuery pseudo selector that was created for the coolPlugin that tells you which
+	elements have been called by the coolPlugin
+	*/
+	$(":coolPlugin").each(function() {
+        console.log(this.id);
+    });
+</pre>
+
+<p>Set options when the plugin is created or after the plugin is created</p>
+
+<strong>Setting an option when the plugin is created</strong>
+<pre class="brush: js; toolbar: false;">
+	//Creating your plugin and setting options!
+    var plugin = $("#someElement").coolPlugin({ someOption: false }).data("coolPlugin");
+</pre>
+
+<strong>Setting an option after the plugin is created</strong>
+<pre class="brush: js; toolbar: false;">
+	//Creating your plugin!
+    var plugin = $("#someElement").coolPlugin().data("coolPlugin");
+
+    //Setting an option after the plugin is created!
+    plugin.setOption("someOption", false);
+</pre>
+
+<br />
+
+<h2> Frequently Asked Questions </h2>
+<p>Questions will be added here from the <a href="https://github.com/gfranko/jq-boilerplate/issues" target="_blank">Github Issues Page</a>. Also, more demos/documentation will be provided on request.
+</div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -90,7 +480,19 @@
               var pageTracker = _gat._getTracker("UA-30888305-1");
             pageTracker._trackPageview();
             } catch(err) {}
+
+            $(function() {
+            	SyntaxHighlighter.defaults['highlight'] = [28, 29, 31, 32];
+                SyntaxHighlighter.all();
+            });
           </script>
+
+  <footer>
+    <span class="credits left">Project maintained by <a href="http://gregfranko.com">Greg Franko</a></span>
+    <span class="credits right">Hosted on GitHub Pages</span>
+    <br />
+    <span>Inspired by <a href="http://jqueryboilerplate.com/" target="_blank">jQuery Boilerplate</a></span>
+  </footer>
 
   </body>
 </html>
