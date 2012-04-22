@@ -1,11 +1,13 @@
-jq-boilerplate - Build stateful jQuery widgets
+jqBoilerplate - Build stateful jQuery widgets
 ==============
 
+[Homepage] (http://www.jqboilerplate.com)
+
 ##Description
-If you are not using the jQueryUI Widget Factory to build stateful UI widgets, you might feel lost about how to properly organize your jQuery plugin code.  Jq-Boilerplate uses the Revealing Module Object-Oriented Design Pattern to organize and provide structure to a stateful jQuery plugin.
+If you are not using the jQueryUI Widget Factory to build stateful jQuery widgets, you might feel lost about how to properly organize your jQuery plugin code.  jqBoilerplate uses the Revealing Module Object-Oriented Design Pattern to organize and provide structure to a stateful jQuery widget.
 
 ##The Revealing Module Pattern
-The Revealing Module Pattern uses closures to allow both private and public plugin properties.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.
+The Revealing Module Pattern uses closures to allow both private and public plugin properties and methods.  Privacy is very useful when you want to provide a public API while also hiding certain plugin functionality from a user.
 
 ##Notable Features
 -Provides a ready-made public API and private methods (All private methods are preceded with an underscore)
@@ -30,7 +32,7 @@ The Revealing Module Pattern uses closures to allow both private and public plug
 
 **2.** Change the `pluginName` and `pluginVersion` variables at the top of the file to your jQuery plugin name and version.
 
-**3.** Write the custom logic for the `create()`, `destroy()`, `enable()`, `disable()`, and `_events`.
+**3.** Write the custom logic for the `create()`, `destroy()`, `enable()`, `disable()`, and `_events()`.
 
-**4.** Celebrate!
+**4.** You just created a stateful jQuery widget!  Celebrate!
  
