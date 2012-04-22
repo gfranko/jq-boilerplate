@@ -70,16 +70,6 @@
             return this;
         },
 
-        //_ARIA Accessibility (Add to this)
-        // --------------------------------
-        //      Adds ARIA (Accessible Rich Internet Applications)
-        //      Accessibility Tags to the DOM element calling the plugin
-        _ariaAccessibility = function() {
-
-            //Maintains chainability
-            return this;
-        },
-
         //Get Option
         // ---------
         //      Returns a single plugin option

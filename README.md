@@ -24,9 +24,8 @@ The Revealing Module Pattern uses closures to allow both private and public plug
 -A solution for dealing with the context of the this keyword (all instance properties are inside 
  of an object literal called self)
 
--Common methods used with stateful plugins are included (events, ariaAccessibility, disable,
- enable, destroy, create).  These methods are blank, since your custom jQuery plugin logic 
- will go here.
+-Common methods used with stateful plugins are included (events, disable, enable, destroy, create).
+ These methods are blank, since your custom jQuery plugin logic will go here.
 
 ##Getting Started
 **1.** Download jq-boilerplate.js
