@@ -1,6 +1,8 @@
 jqBoilerplate - Build stateful jQuery widgets
 ==============
 
+##This repo is no longer being supported.  Please go to the [jqfactory](https://github.com/gfranko/jqfactory) repository instead.
+
 [Homepage] (http://gregfranko.com/jq-boilerplate/)
 
 ##Description
